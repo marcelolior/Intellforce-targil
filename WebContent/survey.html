@@ -1,0 +1,59 @@
+<!doctype html>
+	<html ng-app ="surveyApp" ng-controller="SurveyController">
+	  <head>
+	    <meta charset="utf-8">
+	    <title>Survey</title>
+	    <!-- Include AngularJS library -->
+	    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script> -->
+	    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script> -->
+		<script src="js/angular.min.js"></script>
+	    <!-- Include JQuery library -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	    <!-- Include UI Bootstrap library -->
+		<script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+	    <script src="js/survey.js"></script>
+
+		<!-- Include Bootstrap CSS CDN link -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">  -->
+	  </head>
+	  
+	  <body>
+	  <div  class = "container" style="width:550px">
+		  <div style="text-align:center;color:blue">
+			<img src="images/intellforce_logo.png">
+			<h3><b>Survey</b></h3>
+	   	  </div>
+	    <div >
+	    <form role = "form" class="well">
+	        <div class = "form-group">
+	        <p align="center"><br><label>Question {{index}}/{{totalQuestions}}:<br>{{question.text}}</label></p>
+	        </div>
+	        
+	        <table border="1">
+	        <tr>
+	        <td>
+	        <div ng-init="question.answer=question.options[0]"> 
+	        <br><input type="radio" value="{{question.options[0]}}" ng-model="question.answer" ng-checked="true"> <label>{{question.options[0]}}</label>
+	        <br><input type="radio" value="{{question.options[1]}}" ng-model="question.answer"> <label>{{question.options[1]}}</label>
+	        <br><input type="radio" value="{{question.options[2]}}" ng-model="question.answer"> <label>{{question.options[2]}}</label>
+	        <br><input type="radio" value="{{question.options[3]}}" ng-model="question.answer"> <label>{{question.options[3]}}</label>
+            </div>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td valign="middle">
+			<img src="{{question.image}}" alt="{{question.image}}" height="150" width="100" > 
+			<!-- <img src="images/image1.jpg" alt="{{question.image}}" height="150" width="100" > -->
+			</td>
+			</tr>
+			</table>
+		   
+		    <br><br>
+		     <input type="button" class="btn btn-primary" ng-click="nextQuestion()" class="btn btn-primary" value = "Next" ng-disabled="{{disableNext}}">
+		     <input type="button" class="btn btn-primary" ng-click="finish()" class="btn btn-primary" value = "Finish">
+		</form>
+		
+	    </div>
+		</div>
+	  </body>
+	</html>
